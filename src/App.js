@@ -15,8 +15,9 @@ function Main(props){
       <ul>
         {
         props.dishes.map((dish)=>
-         <li>{dish}</li>
+         <li key={dish.id}>{dish.title}</li>
         )}
+        
       </ul>
      </section>
   )
@@ -36,13 +37,19 @@ const dishes =[
   "Apple Quencher"
 ]
 
+//CHANGE DISHES ARRAY TO OBJECT//
+const dishesOBJ =dishes.map((dish,i)=>
+  ({id:i,title:dish})
+)
+
+
 
 
 function App() {
   return (
     <div className="App">
       <Header name="Alex Gitari's"/>
-      <Main dishes={dishes}/>
+      <Main dishes={dishesOBJ}/>
       <Footer year={new Date().getFullYear()}/>
     </div>
   );
