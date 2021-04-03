@@ -1,58 +1,24 @@
 import React from 'react';
 import './App.css';
 
-function Header(props){
-  return(
-    <header>
-      <h1>{props.name} Kitchen</h1>
-    </header>
-  )
+function SecretComponent(){
+  return <h1>This is a secret component</h1>
 }
 
-function Main(props){
-  return(
-     <section>
-      <ul>
-        {
-        props.dishes.map((dish)=>
-         <li key={dish.id}>{dish.title}</li>
-        )}
-        
-      </ul>
-     </section>
-  )
+function RegularComponent(){
+  return <h1>This is a regular component</h1>
 }
 
-function Footer(props){
-  return(
-    <footer>
-      <h1>Copyright {props.year} </h1>
-    </footer>
-  )
-}
-
-const dishes =[
-  "KFC Chicken",
-  "Lemon Juice",
-  "Apple Quencher"
-]
-
-//CHANGE DISHES ARRAY TO OBJECT//
-const dishesOBJ =dishes.map((dish,i)=>
-  ({id:i,title:dish})
-)
 
 
 
-
-function App() {
-  return (
-    <div className="App">
-      <Header name="Alex Gitari's"/>
-      <Main dishes={dishesOBJ}/>
-      <Footer year={new Date().getFullYear()}/>
-    </div>
-  );
+function App(props) {
+ return(
+   <>
+   {props.authorized ? <RegularComponent /> : <SecretComponent />}
+   </>
+ )
+ 
 }
 
 export default App;
