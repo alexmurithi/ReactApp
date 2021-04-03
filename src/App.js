@@ -9,28 +9,41 @@ function Header(props){
   )
 }
 
-function Main(){
+function Main(props){
   return(
      <section>
-       <p> Body context comes here</p>
+      <ul>
+        {
+        props.dishes.map((dish)=>
+         <li>{dish}</li>
+        )}
+      </ul>
      </section>
   )
 }
 
-function Footer(){
+function Footer(props){
   return(
     <footer>
-      <h1>My footer</h1>
+      <h1>Copyright {props.year} </h1>
     </footer>
   )
 }
+
+const dishes =[
+  "KFC Chicken",
+  "Lemon Juice",
+  "Apple Quencher"
+]
+
+
 
 function App() {
   return (
     <div className="App">
       <Header name="Alex Gitari's"/>
-      <Main />
-      <Footer />
+      <Main dishes={dishes}/>
+      <Footer year={new Date().getFullYear()}/>
     </div>
   );
 }
