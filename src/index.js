@@ -1,18 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
+import App from './App';
 // import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  // <React.StrictMode>
-  //   <App />
-  // </React.StrictMode>,
-  React.createElement(
-    "h2",
-  {style:{color:"blue"}},
-  "My first React Element"
-  ),
+  <App/>,
+ 
   document.getElementById('root')
 );
 
