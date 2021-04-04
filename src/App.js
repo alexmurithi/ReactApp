@@ -1,18 +1,34 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import './App.css';
 
-function App() {
-  const [emotion, setEmotion] =useState("happy")
- return(
-   <>
-   <h1>Current emotion is {emotion}</h1>
-   <button onClick={()=>setEmotion("happy")}>Happy</button>
-   <button onClick={()=>setEmotion("frustrated")}>Frustrate</button>
-   <button onClick={()=>setEmotion("Angry")}>Angry</button>
-   </>
- )
+
+
+function App({login}) {
+const [data, setData] =useState(null)
+
+useEffect(()=>{
+  fetch(`https://api.github.com/users/${login}`)
+   .then(res=>res.json())
+   .then(setData)
+},[login])
+
+if(data){
+  return (
+  <div>
+    <h1>{data.login}</h1>
+    <h1>{data.id}</h1>
+    <img alt={data.login} src={data.avatar_url}/>
+  </div>
+  )
+}
+  return (
+  <div>
+    No 
+  </div>
+  )
  
 }
+
 
 
 export default App;
