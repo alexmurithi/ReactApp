@@ -12,13 +12,20 @@ function RegularComponent(){
 
 
 
-function App(props) {
+function App({authorized}) {
  return(
    <>
-   {props.authorized ? <RegularComponent /> : <SecretComponent />}
+   {authorized ? <RegularComponent /> : <SecretComponent />}
    </>
  )
  
 }
+
+
+const [protein,drink] =["eggs","soda","milk"]
+console.log(protein,drink)
+
+const [, drinks] =["eggs","soda","milk"]
+console.log(drinks)
 
 export default App;
