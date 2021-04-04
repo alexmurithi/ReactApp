@@ -5,7 +5,7 @@ import App from './App';
 // import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <App authorized="false"/>,
+  <App />,
  
   document.getElementById('root')
 );
